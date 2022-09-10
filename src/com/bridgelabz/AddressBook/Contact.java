@@ -11,7 +11,8 @@ public class Contact {
 		Scanner sc = new Scanner(System.in);
 		while (true) {
 			System.out.println("Welcome To Address Book System\n\n" + "Choose your option:\n"
-					+ "1. Create new contact\n" + "2. View all the existing contacts\n" + "3. Edit existing contact\n");
+					+ "1. Create new contact\n" + "2. View all the existing contacts\n" + "3. Edit existing contact\n"
+					+ "4. Remove The contact\n" + "5. Quit\n");
 			int option = sc.nextInt();
 			sc.nextLine();
 			switch (option) {
@@ -68,6 +69,21 @@ public class Contact {
 						System.out.println("User not found");
 					}
 				}
+				break;
+			// Remove contact
+			case 4:
+				System.out.println("remove record");
+				System.out.println("Enter name to remove:");
+				for (int i = 0; i < person.size(); i++) {
+					address = person.get(i);
+					if (sc.nextLine().equals(address.getFirstName())) {
+						person.remove(address);
+						System.out.println("List After removing" + person.toString());
+					} else {
+						System.out.println("User not found");
+					}
+				}
+				break;
 
 			case 5:
 				return;
